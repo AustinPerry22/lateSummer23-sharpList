@@ -27,4 +27,32 @@ public class HousesController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
+    [HttpGet("{houseId}")]
+    public ActionResult<House> GetHouseById(int houseId)
+    {
+        try
+        {
+            House house = _housesService.GetHouseById(houseId);
+            return Ok(house);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
+
+    [HttpPost]
+    public ActionResult<House> CreateHouse([FromBody] House houseData)
+    {
+        try
+        {
+            House house = _housesService.CreateHouse(houseData);
+            return Ok(house);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }
