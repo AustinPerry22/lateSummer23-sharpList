@@ -1,10 +1,16 @@
 namespace server.Models;
-
-public class house
+public class House
 {
     public int Id { get; set; }
-    public string Location { get; set; }
+    public int Sqft { get; set; }
+    public int Bedrooms { get; set; }
+    public int Bathrooms { get; set; }
+    public string ImgUrl { get; set; }
+
+    public double Price { get; set; }
+
     public string Description { get; set; }
-    public int price { get; set; }
-    public bool isNew { get; set; }
+
+    public DateTime CreatedAt { get; set; }
+    public DateTime UpdatedAt { get; set; }
 }

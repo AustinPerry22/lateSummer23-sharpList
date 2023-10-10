@@ -13,4 +13,18 @@ public class HousesController : ControllerBase
     {
         _housesService = housesService;
     }
+
+    [HttpGet]
+    public ActionResult<List<House>> GetAllHouses()
+    {
+        try
+        {
+            List<House> houses = _housesService.GetAllHouses();
+            return Ok(houses);
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 }

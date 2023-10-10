@@ -191,3 +191,25 @@ CREATE TABLE
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
         updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update'
     ) default charset utf8 COMMENT '';
+
+INSERT INTO
+    houses (
+        sqft,
+        bedrooms,
+        bathrooms,
+        `imgUrl`,
+        price,
+        description,
+        `createdAt`,
+        `updatedAt`
+    )
+VALUES (
+        200,
+        5,
+        6,
+        'https://images.unsplash.com/photo-1518780664697-55e3ad937233?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aG91c2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60',
+        50000.00,
+        'hello',
+        '1000-01-01',
+        '2000-03-03'
+    );
