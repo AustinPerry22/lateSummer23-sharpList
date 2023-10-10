@@ -46,4 +46,28 @@ public class HousesRepository
         House house = _db.Query<House>(sql, new { houseId }).FirstOrDefault();
         return house;
     }
+
+    internal void RemoveHouse(int houseId)
+    {
+        string sql = "DELETE FROM houses WHERE id = @houseId";
+        int rowsAffected = _db.Execute(sql, new { houseId });
+
+    }
+
+    internal House UpdateHouse(House houseData)
+    {
+        string sql = @"
+        UPDATE houses
+        SET
+        sqft = @sqft,
+        bedrooms = @bedrooms,
+        bathrooms = @bathrooms,
+        imgUrl = @imgUrl,
+        price = @price,
+        description = @description
+        WHERE id = @id;
+        SELECT * FROM houses WHERE id = @id;";
+        House house = _db.Query<House>(sql, houseData).FirstOrDefault();
+        return house;
+    }
 }
